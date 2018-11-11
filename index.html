@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>FlyScanner - сервис поиска авиабилетов</title>
+
+	<!-- Semantic CSS -->
+	<link rel="stylesheet" href="css/semantic.min.css">
+	<link rel="stylesheet" href="vendor/css/calendar.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    
+    <div class="header">
+	    <div class="ui center left aligned container grid">
+			<div class="left floated six wide column logo-container">
+				<div class="logo">
+					<i class="cloud blue icon"></i>
+				</div>
+				<h2 class="logo-description">FlyScanner</h2>
+			</div>
+
+			<div class="right floated seven wide column">
+				<div class="column right floated">
+					<div class="control-block">
+						<div class="currencies-container">
+							<div id="dropdown-currency" class="ui fluid selection dropdown">
+								<input type="hidden" name="currency">
+								<i class="dropdown icon"></i>
+								<div class="default text"><i class="us flag"></i>USD</div>
+								<div class="menu"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="search-container">
+		<div class="ui center left aligned container grid">
+			<div class="ui form massive change-flights">
+				<div id="type-flight" class="inline fields">
+					<div class="field">
+						<div class="ui radio checkbox">
+							<input type="radio" name="type-of-ways" tabindex="0" class="hidden">
+							<label>Туда-обратно</label>
+						</div>
+					</div>
+
+					<div class="field">
+						<div class="ui radio checkbox">
+							<input type="radio" name="type-of-ways" tabindex="1" class="hidden">
+							<label>В одну сторону</label>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="ui form large search-form">
+				<div class="fields ui grid">
+					<div id="input-from" class="action field four wide column">
+						<label>Откуда</label>
+						<div class="ui action input">
+							<div class="ui fluid multiple search selection dropdown search-input">
+								<input type="hidden" name="from">
+								<i class="dropdown icon"></i>
+								<div class="text default">Страна, город или аэропорт</div>
+								<div class="menu"></div>
+							</div>
+
+							<button id="change-directions" class="ui icon button">
+								<i class="exchange icon"></i>
+							</button>
+						</div>
+					</div>
+
+					<div id="input-to" class="field four wide column">
+						<label>Куда</label>
+						<div class="ui fluid multiple search selection dropdown search-input">
+							<input type="hidden" name="from">
+							<div class="text default">Страна, город или аэропорт</div>
+							<div class="menu"></div>
+						</div>
+					</div>
+
+					<div id="date-range-start" class="field two wide column">
+						<label>Туда</label>
+						<div class="ui calendar" id="rangestart">
+							<div class="ui input left icon">
+								<i class="calendar icon"></i>
+								<input type="text" placeholder="Дата">
+							</div>
+						</div>
+					</div>
+
+					<div id="date-range-end" class="field two wide column disabled">
+						<label>Обратно</label>
+						<div class="ui calendar" id="rangeend">
+							<div class="ui input left icon">
+								<i class="calendar icon"></i>
+								<input type="text" placeholder="(В одну сторону)">
+							</div>
+						</div>
+					</div>
+
+					<div class="field four wide column">
+						<label>Пассажиры</label>
+						<div id="passenger" class="ui fluid selection dropdown dropdown-service">
+							<i class="dropdown icon"></i>
+							<span class="default text">2 пассажира</span>
+							<div class="menu">
+								<div class="item" data-value="2">1 пассажир</div>
+								<div class="item selected" data-value="2">2 пассажира</div>
+								<div class="item" data-value="3">3 пассажира</div>
+								<div class="item" data-value="4">4 пассажира</div>
+								<div class="item" data-value="5">5 пассажиров</div>
+								<div class="item" data-value="6">6 пассажиров</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="ui center right aligned container grid">
+			<div class="sixteen wide column">
+				<button id="btn-submit" class="ui large positive button btn-submit">
+					Найти
+					<i class="right arrow icon"></i>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="result-container">
+		<div class="ui container result-inner-block">
+			<div id="container" class="ui segment">
+				<div id="no-result" class="ui icon header hidden">
+					<i class="search icon"></i>
+					По вашему запросу ничего не найдено :(
+				</div>
+
+				<div id="result-search" class="ui hidden">
+
+					<div class="filter">
+						<div class="result-of-search">
+							Результатов: <span class="number-of-search">89</span>, фильтр: <strong id="type-of-filter">Оптимальный</strong>
+						</div>
+
+						<div class="filter-table-control">
+							<div class="ui buttons small">
+								<!-- <button class="ui button" data-value="optimal">Оптимальный</button> -->
+								<button class="ui button active" data-value="cheap">Самый дешевый</button>
+								<button class="ui button" data-value="duration">Самый быстрый</button>
+							</div>
+						</div>
+					</div>
+
+					<table class="ui single line padded table table-result">
+						<thead>
+							<tr>
+								<th>Авиалиния</th>
+								<th>Самолет</th>
+								<th>Номер</th>
+								<th>Место назначения</th>
+								<th>Отправление</th>
+								<th>Прибытие</th>
+								<th>Шлюз</th>
+								<th>Продолжит.</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody id="table-tbody">
+							<!-- <tr>
+								<td>
+									<div class="airline-logo">
+										<img src="https://www.skyscanner.net/images/airlines/small/TK.png" alt="">
+									</div>
+								</td>
+								<td>KSEA</td>
+								<td>ASA436</td>
+								<td>BUDA</td>
+								<td class="data-cell">
+									<div class="time">09:40</div>
+									<div class="date">16 октября 2018</div>
+								</td>
+								<td class="data-cell">
+									<div class="time">10:20</div>
+									<div class="date">16 октября 2018</div>
+								</td>
+								<td>64A</td>
+								<td>
+									<span>26:44</span>
+									<div class="transfer"> 
+										<span class="count-of-transfer">2 пересадки</span>
+										<span class="city-of-transfer" title="Варшава (Фредерик Шопен), WAW Польша">WAW</span>,
+										<span class="city-of-transfer" title="Киев (Борисполь), KBP">KBP</span>
+									</div>
+								</td>
+								<td class="price-cell">
+									<div class="price">9 700 р.</div>
+									<div class="price-total">Итого <span class="price-total-block">19 400 р</span></div>
+									<button class="ui button fluid green">Купить</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="airline-name">Ukraine International</div>
+								</td>
+
+								<td>KSEA</td>
+								<td>ASA436</td>
+								<td>BUDA</td>
+								<td class="data-cell">
+									<div class="time">09:40</div>
+									<div class="date">16 октября 2018</div>
+								</td>
+								<td class="data-cell">
+									<div class="time">10:20</div>
+									<div class="date">16 октября 2018</div>
+								</td>
+								<td>64A</td>
+								<td>
+									<span>26:44</span>
+									<div class="transfer"> 
+										<span class="count-of-transfer">1 пересадка</span>
+										<span class="city-of-transfer" title="Варшава (Фредерик Шопен), WAW Польша">WAW</span>
+									</div>
+								</td>
+								<td class="price-cell">
+									<div class="price">7 200 р.</div>
+									<button class="ui button fluid green">Купить</button>
+								</td>
+							</tr> -->
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    
+	<script src="vendor/js/jquery.min.js"></script>
+	<script src="vendor/js/popup.min.js"></script>
+	<script src="vendor/js/transition.min.js"></script>
+	<script src="vendor/js/calendar.min.js"></script>
+	<script src="js/calendar.js"></script>
+
+	<!-- Your scripts begin here... -->
+	<script src="js/modules/api.js"></script>
+	<script src="js/modules/type-of-flight.js"></script>
+	<script src="js/modules/date-return.js"></script>
+	<script src="js/modules/currencies.js"></script>
+	<script src="js/modules/departure.js"></script>
+	<script src="js/modules/destination.js"></script>
+	<script src="js/modules/vice-versa.js"></script>
+	<script src="js/modules/form-submit.js"></script>
+	<script src="js/modules/not-found.js"></script>
+	<script src="js/modules/list-flight.js"></script>
+	<script src="js/modules/filter.js"></script>
+	
+  </body>
+</html>

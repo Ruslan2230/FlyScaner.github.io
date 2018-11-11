@@ -1,0 +1,255 @@
+.ui.hidden {
+  display: none !important;
+}
+
+
+/***************
+* HEADER
+****************/
+
+.header {
+	padding: 15px 0;
+}
+
+.logo-description {
+  color: #2185d0;
+}
+
+.logo {
+  float: left;
+  margin-right: 8px;
+  font-size: 24px;
+  margin-top: 4px;
+}
+
+.logo-container {
+  margin-top: 4px;
+  cursor: default;
+}
+
+.logo-description {
+	margin: 0;
+}
+
+.currencies-container {
+  float: left;
+  width: 110px;
+  position: relative;
+  z-index: 2;
+}
+
+.currencies-container .ui.selection.dropdown {
+  min-width: 0;
+}
+
+.control-block {
+  float: right;
+}
+
+/***************
+* CHANGE FLIGHTS
+****************/
+
+.change-flights .ui.checkbox label {
+  color: #fff;
+}
+
+.change-flights .ui.radio.checkbox input:checked~.box:after, 
+.change-flights .ui.radio.checkbox input:checked~label:after {
+  background-color: #2185d0;
+}
+
+/***************
+* SEARCH CONTAINER
+****************/
+
+.search-container {
+  padding: 120px 0;
+  background: url(../img/canada-lake-feb.jpg);
+  background-size: cover;
+}
+
+.ui.search-form {
+  width: 100%;
+}
+
+.ui.search-form .field > label {
+  color: #fff;
+}
+
+.ui.search-form .field.disabled {
+  pointer-events: all;
+}
+
+.ui.search-form .field.disabled .calendar {
+  cursor: pointer;
+}
+
+.ui.search-form .field.disabled .ui.input {
+  pointer-events: none;
+}
+
+.ui.search-form .field .button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
+/* Search input */
+
+.ui.multiple.search.dropdown.search-input {
+  border-radius: 0;
+}
+
+.ui.multiple.search.dropdown.search-input > input.search {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: .45238095em 0 .45238095em .94285714em;
+}
+
+.ui.search-form .field.disabled input {
+  cursor: pointer;
+}
+
+/* End */
+
+
+/* Field */
+
+.ui.search-form .fields > .wide.field {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.ui.search-form .fields > .field:first-child {
+  padding-left: .5em;
+}
+
+.ui.search-form .fields > .field:last-child {
+  padding-right: .5em;
+}
+
+.ui.search-form .fields > .field input {
+  border-radius: 0 !important;
+}
+
+.ui.search-form .fields > .field + .field input {
+  border-left: 0 !important;
+}
+
+.ui.search-form .field > label {
+  font-size: .80857143em;
+}
+
+.ui.search-form .icon {
+  border-radius: 0 !important;
+}
+
+.btn-submit {
+  margin-right: 0 !important;
+}
+
+
+.ui.search-form .disabled.field, 
+.ui.search-form .disabled.fields .field, 
+.ui.search-form .field:disabled {
+  opacity: .85;
+}
+
+.ui.selection.dropdown.dropdown-service {
+  border-radius: 0;
+  border-left: 0;
+  min-height: auto;
+  z-index: 1;
+}
+
+
+/***************
+* RESULT CONTAINER
+****************/
+
+.result-container {
+}
+
+.result-container .ui.segment {
+  min-height: 500px;
+  padding: 0;
+  box-shadow: none;
+  border: none;
+}
+
+.result-inner-block {
+  padding: 15px 0;
+}
+
+.airline-name {
+  max-width: 90px;
+  white-space: normal;
+  color: #666;
+  font-size: 12px;
+}
+
+.airline-logo img {
+  max-width: 70px;
+}
+
+/* Filter */
+
+.filter {
+  margin-top: 30px;
+}
+
+.result-of-search {
+  margin-bottom: 15px;
+}
+
+.filter-table-control {
+  margin-bottom: 30px;
+}
+
+.ui.table td.price-cell {
+  text-align: center;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.transfer {
+  font-size: 11px;
+}
+
+.count-of-transfer {
+  color: #ff5452;
+}
+
+.city-of-transfer {
+  cursor: help;
+}
+
+.ui.table td.data-cell {
+  text-align: center;
+}
+
+.time {
+  font-weight: bold;
+}
+
+.price-total {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+/* Tickets */
+
+.table-result {
+  max-width: 100%;
+}
