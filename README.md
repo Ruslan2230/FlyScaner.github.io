@@ -2,7 +2,7 @@
 
 ---
 
-<a href="https://jobless-pie.surge.sh">jobless-pie.surge.sh</a>
+[Посмотреть приложение](http://jobless-pie.surge.sh)
 
 ---
 
